@@ -17,9 +17,11 @@ export default class ContextMenuTrigger extends Component {
         posX: PropTypes.number,
         posY: PropTypes.number,
         renderTag: PropTypes.oneOfType([
+            PropTypes.object, // for forwardRef
             PropTypes.node,
             PropTypes.func
         ]),
+        mouseButton: PropTypes.number,
         disableIfShiftIsPressed: PropTypes.bool
     };
 
@@ -31,6 +33,7 @@ export default class ContextMenuTrigger extends Component {
         renderTag: 'div',
         posX: 0,
         posY: 0,
+        mouseButton: 0,
         disableIfShiftIsPressed: false
     };
 
@@ -90,8 +93,17 @@ export default class ContextMenuTrigger extends Component {
     }
 
     handleContextMenu = (event) => {
-        this.handleContextClick(event);
+        if (this.props.mouseButton === event.button) {
+            this.handleContextClick(event);
+        }
         callIfExists(this.props.attributes.onContextMenu, event);
+    }
+
+    handleMouseClick = (event) => {
+        if (this.props.mouseButton === event.button) {
+            this.handleContextClick(event);
+        }
+        callIfExists(this.props.attributes.onClick, event);
     }
 
     handleContextClick = (event) => {
@@ -144,6 +156,7 @@ export default class ContextMenuTrigger extends Component {
         const newAttrs = assign({}, attributes, {
             className: cx(cssClasses.menuWrapper, attributes.className),
             onContextMenu: this.handleContextMenu,
+            onClick: this.handleMouseClick,
             onMouseDown: this.handleMouseDown,
             onMouseUp: this.handleMouseUp,
             onTouchStart: this.handleTouchstart,

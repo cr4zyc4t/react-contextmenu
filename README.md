@@ -1,12 +1,9 @@
-# !!! Looking for maintainers !!!
+# This is a fork of React ContextMenu
+This fork support:
+- config to use left click or right click to trigger context menu
+- renderTag could be a function component with forwardRef
 
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][dev-deps-image]][dev-deps-url]
-[![Code Climate][climate-image]][climate-url]
-
-[![NPM](https://nodei.co/npm/react-contextmenu.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-contextmenu/)
+<!-- [![NPM](https://nodei.co/npm/react-contextmenu.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-contextmenu/) -->
 
 # React Contextmenu
 
