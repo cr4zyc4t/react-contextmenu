@@ -91,6 +91,7 @@ export default class ContextMenu extends AbstractMenu {
         document.addEventListener('touchstart', this.handleOutsideClick);
         document.addEventListener('scroll', this.handleHide);
         document.addEventListener('contextmenu', this.handleHide);
+        document.addEventListener('mousewheel', this.handleHide);
         document.addEventListener('keydown', this.handleKeyNavigation);
         window.addEventListener('resize', this.handleHide);
     }
@@ -99,6 +100,7 @@ export default class ContextMenu extends AbstractMenu {
         document.removeEventListener('mousedown', this.handleOutsideClick);
         document.removeEventListener('touchstart', this.handleOutsideClick);
         document.removeEventListener('scroll', this.handleHide);
+        document.removeEventListener('mousewheel', this.handleHide);
         document.removeEventListener('contextmenu', this.handleHide);
         document.removeEventListener('keydown', this.handleKeyNavigation);
         window.removeEventListener('resize', this.handleHide);
